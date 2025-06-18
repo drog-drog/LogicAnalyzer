@@ -1,0 +1,12 @@
+description: |
+  This is the binding for the logic analyzer node.
+  It dosent require much. only its pins.
+
+compatible: "logic-analyzer"
+
+properties:
+  gpios:
+    type: phandle-array
+    required: true
+    description: |
+      These are the pins that will be sampled
