@@ -1,0 +1,27 @@
+manifest:
+  defaults:
+    remote: zephyr
+
+  remotes:
+    - name: zephyr
+      url-base: https://github.com/zephyrproject-rtos
+
+  projects:
+    - name: zephyr
+      revision: 781011b911736ad94a8d7ebde24ceae3998bc03f
+      path: zephyr
+      west-commands: scripts/west-commands.yml
+    - name: hal_stm32
+      revision: 46c5ca5ac099ac1ed530975ea2bb5dc4ebb4dfb2
+      path: modules/hal/stm32
+      groups:
+        - hal
+    - name: cmsis
+      revision: d1b8b20b6278615b00e136374540eb1c00dcabe7
+      path: modules/hal/cmsis
+      groups:
+        - hal
+    - name: LogicAnalyzer
+      url: git@github.com:drog-drog/LogicAnalyzer.git
+      revision: v1.0.0
+      path: LogicAnalyzer

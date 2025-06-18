@@ -1,0 +1,23 @@
+/ {
+
+    chosen{
+        logic-analyzer,dev = &logic_analyzer;
+    };
+
+    soc{
+        logic_analyzer: logic_analyzer{
+            compatible = "logic-analyzer";
+            gpios = <&gpiob 2 GPIO_ACTIVE_HIGH>, <&gpioa 0 GPIO_ACTIVE_HIGH>;
+        };
+    };
+
+};
+
+&usart2 {
+    pinctrl-0 = <&usart2_rx_pd6 &usart2_tx_pd5>;
+    pinctrl-names = "default";
+    current-speed = <115200>;
+    hw-flow-control;
+    status = "okay";
+};
+

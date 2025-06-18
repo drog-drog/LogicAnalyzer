@@ -1,5 +1,5 @@
-zephyr_include_directories(include)
+cmake_minimum_required(VERSION 3.20.0)
+find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
+project(logic-analyzer-test)
 
-zephyr_library()
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-threadsafe-statics")
-zephyr_library_sources_ifdef(CONFIG_LOGIC_ANALYZER src/LogicAnalyzer.cpp)
+target_sources(app PRIVATE src/main.cpp)

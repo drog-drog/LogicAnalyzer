@@ -1,0 +1,36 @@
+/ {
+
+    chosen{
+        logic-analyzer,dev = &logic_analyzer;
+    };
+
+    soc{
+        logic_analyzer: logic_analyzer{
+            compatible = "logic-analyzer";
+            gpios = <&gpiob 2 GPIO_ACTIVE_HIGH>, <&gpioa 0 GPIO_ACTIVE_HIGH>;
+        };
+    };
+
+};
+
+&usart2 {
+    pinctrl-0 = <&usart2_rx_pd6 &usart2_tx_pd5>;
+    dmas = <&dmamux1 0 43 STM32_DMA_PERIPH_RX>,
+        <&dmamux1 1 44 STM32_DMA_PERIPH_TX>;
+    dma-names = "rx", "tx";
+    pinctrl-names = "default";
+    current-speed = <115200>;
+    status = "okay";
+};
+
+&dmamux1 {
+    status = "okay";
+};
+
+&dma1 {
+    status = "okay";
+};
+
+&dma2 {
+    status = "okay";
+};
